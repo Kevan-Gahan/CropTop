@@ -1,0 +1,590 @@
+html{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    background-color:black;
+    overflow: hidden;
+    -webkit-text-size-adjust: 100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.page-wrapper{
+    height:100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
+/* ------------------------------- HEADER SECTION --------------------------- */
+
+/* -- Header Navigation -- */
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+    margin: 0 20px 0 0;
+}
+.bar{
+    display: block;
+    width: 35px;
+    height: 4px;
+    border-radius: 2px;
+    margin: 7px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #FFC80B;  
+}
+.bar-mid{
+    width:25px;
+}
+.bar-scrolled{
+    background-color: #FFC80B;  
+}
+@keyframes text-appear {
+    0%{
+        transform: translateY(-1000%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes zoomout {
+    0%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.nav-regular{
+    font-family: 'Smooch Sans', sans-serif;
+    font-size:2em;
+    font-weight: 200;
+    width: 100vw;
+    height: 3.5em;
+    display: flex;
+    align-items: center; 
+    position: fixed;
+    transition: all 500ms ease-in-out; 
+    z-index: 3;
+    justify-content: space-between;
+}
+
+.nav-scrolled{
+    height:2.5em;
+    z-index: 3;
+    background-color: rgba(0,0,0,1);
+    position: fixed;
+    top:0;
+    transition: 0.3s ease-out;
+    -webkit-box-shadow: 0px 11px 7px -4px rgba(80, 78, 78, 0.75);
+    -moz-box-shadow: 0px 11px 7px -4px rgba(80, 78, 78, 0.75);
+    box-shadow: 0px 3px 12px -4px rgba(80, 78, 78, 0.75);
+}
+
+.scroll-watcher {
+    left:0;
+    right:0;
+    height: 0;
+    position: absolute;
+    top:0;
+    z-index: 999;
+}
+
+.nav-menu{
+    position: absolute;
+    right:0;
+    margin: auto 2em;
+    display:flex;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.nav-item{
+    margin: auto 1em;
+    display: inline-block;
+    animation: 1s ease-out 0s 1 text-appear; 
+}
+
+.nav-item-separator{
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 1px;
+    background-color: #c8c4c3a3;
+    margin: 0;
+}
+
+.nav-item a{
+    transition: all 0.3s ease 0s;
+    color:white;
+    text-decoration: none;
+}
+
+.logo-image{
+    height: 75%;
+    cursor: pointer;
+    margin: 0.3em auto 0.3em 0.3em;
+}
+
+.nav-item a:hover{
+    color:#FFC80B;
+}
+
+/*---- HERO SECTION ----*/
+header{
+    display: flex;
+    position: relative;
+    height: 100%;
+    align-items: center;
+    font-family: 'Smooch Sans', sans-serif;
+    font-size:2em;
+    font-weight: 200;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+.hero-home{
+    position: absolute;
+    height:100%;
+    width:100%;
+    background-color: black;
+}
+
+.hero-home-img{
+    transform: translateZ(-10px) scale(2);
+}
+
+.hero-home-img{
+    position: absolute;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    z-index: -1;
+    animation: 2s ease-out 0s 1 zoomout;
+}
+
+.home-title-text{
+    position: absolute;
+    z-index: 1;
+    left:0;
+    right:0;
+    top:20vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.home-page-title-cover{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+}
+
+.home-page-subtitle-cover{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+}
+.home-hero-title-cartoon{
+    width: 20em;
+    margin: auto;
+    animation: 1s ease-out 0s 1 text-appear; 
+}
+.home-page-title-1{
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 4em;
+    font-weight: bold;
+    color: white;
+    animation: 1s ease-out 0s 1 text-appear; 
+    height: 100%;
+    margin: auto 0 auto auto;
+    text-shadow: 0 0 5px black;
+}
+.home-page-title-2{
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 4em;
+    font-weight: bold;
+    color: #FFC80B;
+    animation: 1s ease-out 0s 1 text-appear; 
+    height: 100%;
+    margin: auto auto auto 0.2em;
+    text-shadow: 0 0 5px black;
+}
+.home-page-subtitle{
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: white;
+    animation: 2s ease-out 0s 1 text-appear; 
+    height: 100%;
+    margin: auto;
+    text-shadow: 0 0 5px black;
+}
+.home-hero-shape{
+    position: absolute;
+    z-index: 3;
+    width:100%;
+    height:25%;
+    bottom:0;
+}
+
+.home-hero-shape svg{
+    width:100%;
+    height: 100%;
+}
+.hero-polygon1{
+    fill:black;
+}
+.hero-polygon2{
+    fill:#FFC80B;
+}
+
+.home-button{
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: large;
+    color: white;
+    border-radius: 30px;
+    position: absolute;
+    border: 1px solid white;
+    z-index: 4;
+    height:2.5em;
+    width:7em;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.home-button:hover{
+    background-color: #FFC80B;
+    color: black;
+}
+.follow-button{
+    right:2em;
+    top:60%;
+}
+
+/* -------- About the Band Section -- HOME -------- */
+.home-about-the-band{
+    background-color: black;
+    position: relative;
+    height: fit-content;
+    width: 100vw;
+    display: flex;
+}
+.about-graphic-section{
+    text-align: center;
+    height:100%;
+    width:50vw;
+    display: flex;
+    align-items: center;
+    margin: 7em auto;
+}
+
+.about-graphic-section img{
+    height:30em;
+    margin: auto 3em auto auto;
+}
+
+.about-text-section{
+    display: flex;
+    height:100%;
+    width:50vw;
+    margin: auto 5em auto auto;
+}
+.text-wrapper{
+    width:70%;
+    height: fit-content;
+    margin: auto auto auto 2em;
+    max-width: 510px;
+    overflow: hidden;
+}
+.text-wrapper h1{
+    font-size: 4em;
+    color:#FFC80B;
+    font-family: 'Smooch Sans', sans-serif;
+    margin: 0 auto;
+}
+.text-wrapper h2{
+    font-size: 1.5em;
+    color: white;
+    font-family: "Oswald", sans-serif;
+    margin: 0 auto 1em;
+}
+.text-wrapper p{
+    font-size: 1em;
+    font-weight: 100;
+    color: white;
+    font-family: sans-serif;
+    margin: 1em auto;
+}
+.merch-button{
+    margin: 1em auto auto;
+}
+
+/* -------- EVENT INFO Section -- HOME -------- */
+.home-event-info{
+    background-color: rgba(25,25,25,1);
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.event-left{
+    width:50%;
+    height:100%;
+    display: flex;
+}
+.event-text-wrapper{
+    height: fit-content;
+    max-width: 510px;
+    overflow: hidden;
+    margin:auto;
+    text-align: center;
+}
+.event-right{
+    width:50%;
+    height:100%;
+}
+.home-event-poster{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+.details-button{
+    position: relative;
+    margin: 1em auto;
+}
+
+/* ----- HOME LISTEN/WATCH SECTION ----- */
+.home-media{
+    width: 100vw;
+    height:fit-content;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.soundcloud-imbed{
+    width:50%;
+    margin:0 auto 3em;
+}
+.home-media-header{
+    font-size: 4em;
+    color:#FFC80B;
+    font-family: 'Smooch Sans', sans-serif;
+    margin: 0.5em auto 0.5em;
+}
+
+
+
+/* ------------- FOOTER SECTION-------------- */
+.footer-main{
+    height:fit-content;
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(25,25,25,1);
+    align-items: center;
+    justify-content: center;
+}
+footer p{
+    color:white;
+    font-family: sans-serif;
+}
+.footer-main-wrap{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-link{
+    display: flex;
+    width:2em;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+.social-link>*{
+    width:100%;
+}
+footer a{
+    font-family: sans-serif;
+    color:white;
+    font-family: 'Smooch Sans', sans-serif;
+}
+.footer-bottom{
+    background-color: rgba(25,25,25,1); 
+    height: 2em;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+.footer-bottom >*{
+    font-family: 'Smooch Sans', sans-serif;
+}
+
+
+.footer-item-separator{
+    color:white;
+    margin: auto 1em;
+}
+
+/* --------------------------- FOR MOBILE VIEW ------------------------------ */
+@media(max-width:820px){
+    /* -- NAVBAR CHANGE WITH SCROLL -- */
+    .nav-regular{
+        height:4.5em;
+        transition: 0.5s ease-out;
+    }
+
+    .nav-scrolled{
+        height:4.5em;
+        transition: 0.5s ease-out;
+    }
+
+    /* -------- HAMBURGER MENU ------- */
+    .hamburger{
+        z-index: 2;
+        display: block;
+        margin: auto 2em auto auto;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;    
+    }
+    .hamburger.active .bar:nth-child(1){ 
+        transform: translateY(11px) rotate(45deg);
+        background-color:red;
+    }
+    .hamburger.active .bar:nth-child(3){ 
+        transform: translateY(-11px) rotate(-45deg);
+        background-color:red;
+    }
+    .nav-menu{
+        display: flex;
+        position:inherit;
+        z-index: 3;
+        left:0;
+        top:4.5em;
+        gap: 0;
+        outline: 1px solid #FFC80B;
+        flex-direction: column;
+        background-color:black;
+        text-align: center;
+        transition: 1s all ease;
+        margin: 0;
+        width: 100vw;
+        height:fit-content;
+        padding: 0;
+        box-shadow: 1px 12px 42px 10px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 1px 12px 42px 10px rgba(0,0,0,0.75);
+        -moz-box-shadow: 1px 12px 42px 10px rgba(0,0,0,0.75);
+        display: none;
+    }
+    @keyframes appear-zoom {
+        0%{
+            transform: scale(0);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    .nav-menu.active{
+        display: block;
+        animation: appear-zoom 0.2s ease;
+    }
+
+    .nav-item-separator{
+        display: block;
+    }
+
+    .nav-item{
+        font-size: 1.5em;
+        padding: 0;
+        width:100%;
+        margin: auto;
+        animation: none;
+    }
+    
+    .nav-item a{
+        display: block;
+        width:100%;
+        padding: 2vh 0;
+        color: white;
+        margin: 0;
+    }
+
+    /* HERO SECTION */
+    .home-hero-title-cartoon{
+        width:75vw;
+    }
+    .home-page-subtitle{
+        font-size: 0.8em;
+    }
+
+    .home-about-the-band{
+        margin: 0;
+        height: fit-content;
+        padding: 5em 0;
+        flex-direction: column-reverse;
+    }
+    .about-graphic-section{
+        margin: 0 auto;
+    }
+    .about-graphic-section img{
+        height:25em;
+        margin: auto;
+    }
+    .about-text-section{
+        text-align: center;
+        width: 95vw;
+    }
+    
+    .merch-button{
+        position: relative;
+        margin: 2em;
+    }
+    .text-wrapper{
+        width: 100%;
+    }
+
+    .home-event-info{
+        height: fit-content;
+        padding: 2em 0;
+    }
+
+    .event-text-wrapper{
+        max-width: none;
+    }
+    .event-left{
+        width: 100%;
+    }
+    .event-right{
+        display: none;;
+    }
+    .footer-bottom{
+        height: fit-content;
+        flex-direction: column;
+    }
+    .footer-item-separator{
+        display: none;
+    }
+
+    .soundcloud-imbed{
+        width: 95%;
+    }
+
+
+
+}
