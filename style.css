@@ -29,14 +29,14 @@ body.hide{
 .hamburger{
     display: none;
     cursor: pointer;
-    margin: 0 0 0 0;
+    margin: 0;
 }
 .bar{
     display: block;
     width: 35px;
-    height: 3px;
+    height: 2px;
     border-radius: 2px;
-    margin: 8px auto;
+    margin: 9px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: #FFC80B;  
@@ -78,6 +78,10 @@ body.hide{
     justify-content: space-between;
 }
 
+.nav-regular a{
+    text-decoration: none;
+}
+
 .nav-scrolled{
     height:2.5em;
     z-index: 3;
@@ -85,9 +89,17 @@ body.hide{
     position: fixed;
     top:0;
     transition: 0.3s ease-out;
-    -webkit-box-shadow: 0px 11px 7px -4px rgba(80, 78, 78, 0.75);
-    -moz-box-shadow: 0px 11px 7px -4px rgba(80, 78, 78, 0.75);
-    box-shadow: 0px 3px 12px -4px rgba(80, 78, 78, 0.75);
+}
+.nav-scrolled::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 2.5em; 
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(rgba(80, 78, 78, 0.35),transparent);
+    transition: 0.3s ease-out;
 }
 
 .scroll-watcher {
@@ -102,16 +114,18 @@ body.hide{
 .nav-menu{
     position: absolute;
     right:0;
-    margin: auto 2em;
     display:flex;
     list-style: none;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 30rem;
+    padding:0;
+    margin: 2.5rem;
+
 }
 
 .nav-item{
-    margin: auto 1em;
     display: inline-block;
-    animation: 1s ease-out 0s 1 text-appear; 
+    animation: 1s ease-out 0s 1 text-appear;
 }
 
 .nav-item-separator{
@@ -133,14 +147,14 @@ body.hide{
 .logo-image{
     height: 75%;
     cursor: pointer;
-    margin: 0.3em auto 0.3em 0.3em;
+    margin: auto 2.5rem;
 }
 
 .nav-item a:hover{
     color:#FFC80B;
 }
 
-.merch-button-nav{
+.button-nav{
     display: none;
 }
 
@@ -154,7 +168,7 @@ header{
     font-size:2em;
     font-weight: 200;
     transform-style: preserve-3d;
-    z-index: -1;
+    z-index: 1;
 }
 .hero-home{
     position: absolute;
@@ -170,10 +184,10 @@ header{
 .hero-home-img{
     position: absolute;
     width:100%;
-    height:100%;
+    height: 100%;
     object-fit: cover;
     z-index: -1;
-    animation: 2s ease-out 0s 1 zoomout;
+    animation: 0.5s ease-out 0s 1 zoomout;
 }
 
 .home-title-text{
@@ -202,7 +216,7 @@ header{
     display: flex;
 }
 .home-hero-title-cartoon{
-    width: 10em;
+    width: 30rem;
     margin: auto;
     animation: 1s ease-out 0s 1 text-appear; 
 }
@@ -216,25 +230,6 @@ header{
     margin: auto;
     text-shadow: 0 0 5px black;
 }
-.home-hero-shape{
-    position: absolute;
-    z-index: 3;
-    width:100%;
-    height:25%;
-    bottom:0;
-}
-
-.home-hero-shape svg{
-    width:100%;
-    height: 100%;
-}
-.hero-polygon1{
-    fill:black;
-}
-.hero-polygon2{
-    fill:#FFC80B;
-}
-
 .home-button{
     font-family: 'Smooch Sans', sans-serif;
     font-size: large;
@@ -254,17 +249,32 @@ header{
     color: black;
 }
 .follow-button{
-    right:2em;
-    top:60%;
+    position: absolute;
+    z-index: 999;
+    right: 2.5rem;
+    top: -5vw;
 }
 
 /* -------- About the Band Section -- HOME -------- */
 .home-about-the-band{
     background-color: black;
     position: relative;
+    z-index: 1;
     height: fit-content;
     width: 100vw;
     display: flex;
+}
+.home-about-the-band::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0; /* Adjust this value to control the slant height */
+    left: 0;
+    width: 100%;
+    height: 20em; /* Adjust this value to control the slant angle */
+    background-color: inherit; /* Inherit parent's background color */
+    transform-origin: top left;
+    transform: skewY(-5deg); /* Skew transformation to create the slant */
 }
 .about-graphic-section{
     text-align: center;
@@ -323,6 +333,7 @@ header{
     height: 100vh;
     width: 100vw;
     display: flex;
+    z-index: 1;
 }
 .event-left{
     width:50%;
@@ -428,27 +439,79 @@ footer a{
     margin: auto 1em;
 }
 
+
+/*--- ------ ABOUT PAGE ------ ---*/
+.subpage-wrapper{
+    height:100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+.subpage-header{
+    height: 100vh;
+}
+.about-page-content{
+    height:100%;
+    background-color: black;
+}
+.hero-sub-img{
+    transform: translateZ(-10px) scale(2);
+}
+.hero-sub-img{
+    position: absolute;
+    height:100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    animation: 2s ease-out 0s 1 zoomout;
+}
+
 /* --------------------------- FOR MOBILE VIEW ------------------------------ */
+@media(max-width:1715px){
+    .home-about-the-band::before{
+        transform: skewY(-8deg); /* Skew transformation to create the slant */
+    }
+    .follow-button{
+        top:-8vw;
+    }
+}
+
 @media(max-width:820px){
     /* -- NAVBAR CHANGE WITH SCROLL -- */
     .nav-regular{
-        height:10vh;
+        height:8vh;
         transition: 0.5s ease-out;
     }
     .nav-scrolled{
-        height:10vh;
+        height:8vh;
         transition: 0.5s ease-out;
+    }
+
+    .nav-regular::before{
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0; /* Adjust this value to control the slant height */
+        left: 0;
+        width: 100%;
+        height: 8vh; /* Adjust this value to control the slant angle */
+        background: linear-gradient(black,transparent);
+    }
+    .nav-scrolled::after{
+        top:8vh;
     }
 
     /* -------- HAMBURGER MENU ------- */
     .logo-image{
-        margin: 0.3em auto 0.3em 20vw;
+        height:50%;
+        position: relative;
+        margin: auto 2em;
     }
     .hamburger{
         position: absolute;
         z-index: 2;
         display: block;
-        margin: auto auto auto 5vw;
+        margin: auto auto auto 3vw;
     }
     .hamburger.active .bar:nth-child(2){
         opacity: 0;    
@@ -464,7 +527,7 @@ footer a{
         position:absolute;
         z-index: 3;
         left:0;
-        top:10vh;
+        top:8vh;
         gap: 0;
         background: linear-gradient(270deg,rgba(0,0,0,0.8),rgba(0,0,0,1));
         text-align: center;
@@ -512,11 +575,17 @@ footer a{
         margin: 0;
     }
     .home-button{
-        background-color: #FFC80B;
-        color: black;
+        border-radius: 3px;
+        border: 1px solid#FFC80B;
+        background-color: transparent;
+        color: #FFC80B;
+        height:2em;
+        width:6em;
     }
-    .merch-button-nav{
+    .button-nav{
         display: block;
+        position: relative;
+        margin: 3vw;
     }
 
     /* HERO SECTION */
@@ -525,7 +594,6 @@ footer a{
         top:0;
     }
     .hero-home-img{
-        outline: 2px solid red;
         transform: none;
         
     }
@@ -533,9 +601,9 @@ footer a{
         width:75vw;
     }
     .home-page-subtitle{
-        font-size: 0.8em;
+        font-size: 1.2em;
     }
-    .home-hero-shape{
+    .follow-button{
         display: none;
     }
 
@@ -547,13 +615,14 @@ footer a{
     }
     .about-graphic-section{
         margin: 0 auto;
+        width: fit-content;
     }
     .about-graphic-section img{
         height:25em;
         margin: auto;
     }
     .about-text-section{
-        text-align: center;
+        margin: 0 auto;
         width: 95vw;
     }
     
@@ -564,13 +633,14 @@ footer a{
     .text-wrapper{
         width: 100%;
         text-align: center;
+        margin:auto;
     }
 
     .home-event-info{
+        flex-direction: column;
         height: fit-content;
-        padding: 2em 0;
+        padding: 2em 0 0;
     }
-
     .event-text-wrapper{
         max-width: none;
     }
@@ -578,7 +648,8 @@ footer a{
         width: 100%;
     }
     .event-right{
-        display: none;;
+        margin: 1em auto 0;
+        width:100%;
     }
     .footer-bottom{
         height: fit-content;
