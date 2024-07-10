@@ -77,7 +77,16 @@ body.hide{
     z-index: 3;
     justify-content: space-between;
 }
-
+.nav-regular::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0; /* Adjust this value to control the slant height */
+    left: 0;
+    width: 100%;
+    height: 12vh; /* Adjust this value to control the slant angle */
+    background: linear-gradient(black,transparent);
+}
 .nav-regular a{
     text-decoration: none;
 }
@@ -233,10 +242,10 @@ header{
 .home-button{
     font-family: 'Smooch Sans', sans-serif;
     font-size: large;
-    color: white;
+    color: #FFC80B;
     border-radius: 30px;
     position: absolute;
-    border: 1px solid white;
+    border: 1px solid #FFC80B;
     z-index: 4;
     height:2.5em;
     width:7em;
@@ -374,13 +383,89 @@ header{
     width:50%;
     margin:0 auto 3em;
 }
-.home-media-header{
+.home-section-header{
     font-size: 4em;
     color:#FFC80B;
     font-family: 'Smooch Sans', sans-serif;
     margin: 0.5em auto 0.5em;
 }
 
+/* ------- HOME CONTACT SECTION ------- */
+.home-contact{
+    width: 100vw;
+    height:fit-content;
+    background-color: rgba(25,25,25,1);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4em 0;
+}
+.contact-text-wrapper{
+    margin: auto;
+}
+.contact-form-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.form-container{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    padding: 0vw 2vw;
+    width: 85vw;
+    max-width: 1100px;
+    box-sizing: border-box;
+}
+.form-input{
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    margin: 0.7em 0;
+    padding: 0.5em;
+    border-radius: 3px;
+    font-size: large;
+}
+.test-message{
+    position: absolute;
+    left:-999vw;
+}
+.form-lower-section{
+    display:flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: baseline;
+    align-items: center;
+    max-width: 1100px;
+    padding: 1em 0;
+}
+.g-recaptcha{
+    position: relative;
+    margin:auto;
+}
+.form-sub-btn{
+    width: 15em;
+    position: relative;
+    margin: auto;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.form-sub-btn:hover{
+    scale: 1.05;
+    color: black;
+    background-color:#FFC80B;;
+}
+.btn-enabled{
+    display:none;
+}
 
 
 /* ------------- FOOTER SECTION-------------- */
@@ -389,7 +474,7 @@ header{
     width:100vw;
     display: flex;
     flex-direction: column;
-    background-color: rgba(25,25,25,1);
+    background-color: black;
     align-items: center;
     justify-content: center;
 }
@@ -421,13 +506,13 @@ footer a{
     font-family: 'Smooch Sans', sans-serif;
 }
 .footer-bottom{
-    background-color: rgba(25,25,25,1); 
+    background-color: black; 
     height: 2em;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: large;
+    font-size: 1.5em;
 }
 .footer-bottom >*{
     font-family: 'Smooch Sans', sans-serif;
@@ -488,14 +573,7 @@ footer a{
     }
 
     .nav-regular::before{
-        content: '';
-        position: absolute;
-        z-index: -1;
-        top: 0; /* Adjust this value to control the slant height */
-        left: 0;
-        width: 100%;
         height: 8vh; /* Adjust this value to control the slant angle */
-        background: linear-gradient(black,transparent);
     }
     .nav-scrolled::after{
         top:8vh;
@@ -663,6 +741,23 @@ footer a{
         width: 95%;
     }
 
-
+        /* ----- CONTACT PAGE ----- -*/
+        .contact-content{
+            margin: 2vh 0;
+        }
+    
+        .contact-form{
+            width: 98vw;
+        }
+        .form-sub-btn{
+            width: 94vw;
+            height: 3em;
+        }
+    
+        .form-lower-section{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
 }

@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Smooch+Sans:wght@200;500;800&display=swap" rel="stylesheet">
+    <!-- RECAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 
 
     <title>Crop Top Band Portland Oregon | Pop Punk Music</title>
@@ -114,10 +117,48 @@
 
         <!-- ----- LISTEN SECTON ----- -->
         <section class="home-media">
-                <h1 class="home-media-header">LISTEN</h1>
-                <iframe class="soundcloud-imbed" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1593832236&color=%23343a43&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-                </iframe>
+            <h1 class="home-section-header">LISTEN</h1>
+            <iframe class="soundcloud-imbed" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1593832236&color=%23343a43&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+            </iframe>
+        </section>
+
+        <!-- ----- CONTACT SECTON ----- -->
+        <section class="home-contact">
+            <h1 class="home-section-header">CONTACT US</h1>
+            <div class="text-wrapper contact-text-wrapper">
+                <h2>
+                    Please reach out with any questions or comments!
+                </h2>
+            </div>
+            <div class="contact-form-area">
+                <div class="form-container">
+                    <form method="POST" class="contact-form" action="send.php" enctype="multipart/form-data" id="dc-form">
+                        <!-- Contact Form Design -->
+                        <input class="form-input" type="text" id="Name" name="Name" placeholder="Your Name" required>
+                        <input class="form-input" type="text" id="Email Address" name="email" placeholder="Email (example@example.com)" required>
+                        <input class="form-input" type="text" id="Phone Number" name="PhoneNumber" placeholder="Phone Number (optional)">
+                        <div class="test-message">
+                            <input class="form-input" type="text" id="testmessage" name="testmessage">
+                        </div>
+                        <textarea class="form-input" id="message" rows="15" name="Message" placeholder="Message..." required></textarea>
+                        <!-- Recaptcha and submit button-->
+                        <div class="form-lower-section">
+                            <div class="g-recaptcha" data-sitekey="6LfgeQwqAAAAAN6yA8JVAA_2-JV7xYb8ytKXiX7t" data-callback="enableBtn" data-expired-callback="disableBtn"></div>
+                            <br/>
+                            <input type="submit" name="submit" id="formsubBtn" disabled="disabled" value="Send Message" class="home-button form-sub-btn">
+                        </div>
+                    </form>
+                    
+                   <script>
+                        function enableBtn() {
+                            document.getElementById("formsubBtn").disabled = false;
+                        }
+                        function disableBtn() {
+                            document.getElementById("formsubBtn").disabled = true;
+                        }
+                    </script>
+                </div>
 
         </section>
         
