@@ -367,7 +367,6 @@ header{
     height:100%;
     width:100%;
     object-fit: cover;
-    border: 1px solid white;
 }
 .details-button{
     position: relative;
@@ -628,13 +627,27 @@ footer a{
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    outline: 2px solid red;
+    margin: 0 auto 5em;
 }
 .events-h1 {
     font-size: 4em;
     color:#FFC80B;
     font-family: 'Smooch Sans', sans-serif;
     margin: 2em auto 0;
+}
+.events-h2 {
+    font-size: 2.5em;
+    font-weight: 300;
+    color:#FFC80B;
+    font-family: 'Smooch Sans', sans-serif;
+    margin: auto;
+}
+.events-h3 {
+    font-size: 2em;
+    font-weight: 300;
+    color:white;
+    font-family:sans-serif;
+    margin: 1em auto;
 }
 .event-heading{
     margin: 0 auto 2em;
@@ -650,7 +663,6 @@ footer a{
     width:75%;
     margin: auto;
     position: relative;
-    outline: 2px soldi red;
     display: flex;
     flex-direction: column;
 }
@@ -665,30 +677,101 @@ footer a{
     align-items: center;
     justify-content: space-between;
 }
-.event-subsection{
+.event-subsection-left{
     font-family: 'Smooch Sans', sans-serif;
     text-align: left;
     display: flex;
     flex-direction: column;
     width: 33.3%;
-
 }
-.event-subsection h2{
-    font-size: 2em;
+.event-subsection-center{
+    font-family: 'Smooch Sans', sans-serif;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 33.3%;
+    align-items: center;
+}
+.event-subsection-right{
+    height:100%;
+    font-family: 'Smooch Sans', sans-serif;
+    align-items: center;
+    justify-content: right;
+    display: flex;
+    width: 33.3%;
+}
+.event-button{
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: large;
+    color: #FFC80B;
+    border-radius: 30px;
+    border: 1px solid #FFC80B;
+    height:2.5em;
+    width:7em;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin: auto 1vw;
+}
+.event-button:hover{
+    background-color: #FFC80B;
+    color: black;
+}
+.event-subsection-left h2{
+    font-size: 1.8em;
     color: white;
 }
-.event-subsection h3{
+.event-subsection-center h2{
+    font-size: 1.8em;
+    color: white;
+}
+.event-subsection-left h3{
     font-family: sans-serif;
     font-size: 1.2em;
     color: darkgray;
 }
-.event-subsection > * {
+.event-subsection-center h3{
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: darkgray;
+}
+.event-subsection-left > * {
+    margin: 0;
+}
+.event-subsection-center > * {
     margin: 0;
 }
 
 
-
-
+/* --------------------- INDIVIDUAL EVENT PAGE ------------------------------ */
+.event-content{
+    width: 100%;
+    background-color: black;
+    height:fit-content;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto 5em;
+}
+.event-info-section{
+    width:100%;
+    display:flex;
+    height: fit-content;
+}
+.event-info-half{
+    width:50%;
+    height: fit-content;
+    text-align: center;
+    align-items: center;
+}
+.map-embed{
+    margin: 2em auto;
+    border-radius: 5px;
+    outline: 2px solid white;
+}
 
 /* ----------------------- TERMS/PRIVACY PAGES ------------------------------ */
 .utility-content{
