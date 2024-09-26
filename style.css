@@ -739,7 +739,7 @@ footer a{
     margin: 0;
 }
 .event-subsection-center > * {
-    margin: 0;
+    margin: auto 0.3em;
 }
 
 
@@ -830,6 +830,15 @@ footer a{
     }
     .follow-button{
         top:-8vw;
+    }
+}
+
+@media(max-width:1342px){
+    .event-subsection-right{
+        flex-direction: column;
+    }
+    .event-button{
+        margin: 5px auto;
     }
 }
 
@@ -1034,8 +1043,27 @@ footer a{
 
 
     /* ----- EVENTS-PAGE ----- */
-    .event-heading hr{
-        width:90%;
+    .event-item{
+        width: 92vw;
+    }
+    .event-inner{
+        flex-direction: column;
+        text-align: center;
+    }
+    .event-inner > *{
+        margin: 1em auto;
+        width: 100%;
+    }
+    .event-subsection-left{
+        flex-direction: column;
+        text-align: center;
+    }
+    .event-subsection-center{
+        flex-direction: column;
+        text-align: center;
+    }
+    .event-subsection-right{
+        justify-content: center;
     }
 
     /* ---- TERMS/PRIVACY PAGE ---- */
